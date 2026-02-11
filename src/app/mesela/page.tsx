@@ -46,7 +46,7 @@ export default function MeselaPage() {
         title="Mesela 2026"
         subtitle="The current EASA project — designing and building a new Early Childhood Development centre for the Mesela community in Limpopo."
         primaryCta={{ label: "Support This Project", href: "/get-involved" }}
-        bgColor="bg-teal/10"
+        bgImage="/images/IMG_7390.JPG"
       />
 
       {/* About Mesela */}

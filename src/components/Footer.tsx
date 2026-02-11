@@ -26,7 +26,7 @@ export default function Footer() {
                 { href: "/about", label: "About the Programme" },
                 { href: "/mesela", label: "Mesela 2026" },
                 { href: "/get-involved", label: "Get Involved" },
-                { href: "/gallery", label: "Gallery" },
+                { href: "/projects", label: "Past Projects" },
               ].map((link) => (
                 <li key={link.href}>
                   <Link

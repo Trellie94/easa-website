@@ -7,7 +7,7 @@ const navLinks = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/mesela", label: "Mesela 2026" },
-  { href: "/gallery", label: "Gallery" },
+  { href: "/projects", label: "Past Projects" },
 ];
 
 export default function Navbar() {
