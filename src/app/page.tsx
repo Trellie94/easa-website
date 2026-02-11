@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import Hero from "@/components/Hero";
 import StatCounter from "@/components/StatCounter";
 import SectionHeading from "@/components/SectionHeading";
@@ -87,10 +88,14 @@ export default function HomePage() {
             </div>
 
             {/* Image placeholder */}
-            <div className="rounded-2xl overflow-hidden aspect-[4/3] bg-gradient-to-br from-terracotta/25 via-sand to-forest/15 flex items-center justify-center">
-              <span className="text-warm-grey-light text-sm">
-                Project photograph
-              </span>
+            <div className="rounded-2xl overflow-hidden aspect-[4/3] relative">
+              <Image
+                src="/images/IMG_7390.JPG"
+                alt="EASA project in progress"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
             </div>
           </div>
         </div>
