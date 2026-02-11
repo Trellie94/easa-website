@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Hero from "@/components/Hero";
 import SectionHeading from "@/components/SectionHeading";
 import AccordionSection from "@/components/AccordionSection";
@@ -50,8 +51,18 @@ export default function MeselaPage() {
       />
 
       {/* About Mesela */}
-      <section className="py-20 sm:py-28">
-        <div className="mx-auto max-w-4xl px-6 lg:px-8">
+      <section className="py-20 sm:py-28 relative overflow-hidden">
+        {/* Semi-transparent sketch background */}
+        <div className="absolute inset-0 pointer-events-none">
+          <Image
+            src="/images/melesasketch.png"
+            alt=""
+            fill
+            className="opacity-[0.25] object-cover"
+            aria-hidden="true"
+          />
+        </div>
+        <div className="mx-auto max-w-4xl px-6 lg:px-8 relative z-10">
           <SectionHeading
             title="About the Project"
             subtitle="Key details about the Mesela 2026 build"

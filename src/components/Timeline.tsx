@@ -63,18 +63,18 @@ function CompactTimelineCard({
       } ${entry.slug ? "hover:shadow-md transition-shadow" : ""}`}
     >
       {entry.image && (
-        <div className="relative w-full aspect-[16/10]">
+        <div className="relative w-full aspect-[16/7]">
           <Image
             src={entry.image}
             alt={`${entry.name} project`}
             fill
             className="object-cover"
-            sizes="400px"
+            sizes="280px"
           />
         </div>
       )}
 
-      <div className="p-4">
+      <div className="p-3">
         <span
           className={`block text-xs font-semibold uppercase tracking-wider mb-1 ${
             entry.current ? "text-white/70" : "text-warm-grey-light"

@@ -55,13 +55,13 @@ export default function ProjectMap() {
   useEffect(() => {
     if (!mapRef.current || mapInstance.current) return;
 
-    // Calculate bounds for SA pins
-    const bounds = L.latLngBounds(saPins.map((p) => [p.lat, p.lng]));
-
+    // Centre on Limpopo project cluster at ~50km scale (zoom 10)
     const map = L.map(mapRef.current, {
       scrollWheelZoom: false,
       zoomControl: true,
-    }).fitBounds(bounds, { padding: [30, 30] });
+      center: [-23.95, 29.9],
+      zoom: 10,
+    });
 
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
       attribution: "&copy; OpenStreetMap contributors",
