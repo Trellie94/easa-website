@@ -42,6 +42,7 @@ export default function HomePage() {
         subtitle="The EASA programme designs and builds Early Childhood Development centres with university students — one community at a time."
         primaryCta={{ label: "Support the 2026 Project", href: "/get-involved" }}
         secondaryCta={{ label: "Learn More", href: "#story" }}
+        bgImage="/images/hero-home.gif"
       />
 
       {/* Impact Stats */}

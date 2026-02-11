@@ -6,6 +6,7 @@ interface HeroProps {
   primaryCta?: { label: string; href: string };
   secondaryCta?: { label: string; href: string };
   bgColor?: string;
+  bgImage?: string;
 }
 
 export default function Hero({
@@ -14,21 +15,34 @@ export default function Hero({
   primaryCta,
   secondaryCta,
   bgColor = "bg-terracotta/20",
+  bgImage,
 }: HeroProps) {
   return (
     <section
-      className={`relative min-h-[85vh] flex items-center justify-center ${bgColor}`}
+      className={`relative min-h-[85vh] flex items-center justify-center ${bgImage ? "" : bgColor}`}
     >
-      {/* Warm placeholder background pattern */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute inset-0 bg-gradient-to-br from-terracotta/30 via-sand to-forest/10" />
-      </div>
+      {bgImage ? (
+        <>
+          {/* Background image */}
+          <div
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+            style={{ backgroundImage: `url(${bgImage})` }}
+          />
+          {/* Dark overlay for text readability */}
+          <div className="absolute inset-0 bg-charcoal/50" />
+        </>
+      ) : (
+        /* Warm placeholder background pattern */
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute inset-0 bg-gradient-to-br from-terracotta/30 via-sand to-forest/10" />
+        </div>
+      )}
 
       <div className="relative z-10 mx-auto max-w-4xl px-6 text-center py-32">
-        <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-charcoal leading-tight mb-6 animate-fade-in-up">
+        <h1 className={`font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight mb-6 animate-fade-in-up ${bgImage ? "text-white" : "text-charcoal"}`}>
           {title}
         </h1>
-        <p className="text-lg sm:text-xl text-warm-grey max-w-2xl mx-auto mb-10 leading-relaxed animate-fade-in">
+        <p className={`text-lg sm:text-xl max-w-2xl mx-auto mb-10 leading-relaxed animate-fade-in ${bgImage ? "text-white/85" : "text-warm-grey"}`}>
           {subtitle}
         </p>
         {(primaryCta || secondaryCta) && (
