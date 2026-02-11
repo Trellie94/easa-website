@@ -1,65 +1,145 @@
-import Image from "next/image";
+import Link from "next/link";
+import Hero from "@/components/Hero";
+import StatCounter from "@/components/StatCounter";
+import SectionHeading from "@/components/SectionHeading";
+import Timeline from "@/components/Timeline";
+import PartnerCard from "@/components/PartnerCard";
 
-export default function Home() {
+const stats = [
+  { value: 16, suffix: "+", label: "Projects Completed" },
+  { value: 2009, label: "Since" },
+  { value: 1000, suffix: "+", label: "Children Served" },
+  { value: 15, suffix: "+", label: "Years of Impact" },
+];
+
+const partners = [
+  {
+    name: "Education Africa",
+    role: "Programme Lead",
+    description:
+      "The lead body responsible for programme delivery through the EASA initiative, coordinating all stakeholders and managing project execution across South Africa.",
+  },
+  {
+    name: "University of Nottingham",
+    role: "Academic Partner",
+    description:
+      "The academic partner providing the student pipeline — architecture students who design and build each project as part of their professional development.",
+  },
+  {
+    name: "Thusanang Trust",
+    role: "On-the-Ground Partner",
+    description:
+      "The on-the-ground client responsible for identifying ECD centres in need, managing site selection, and ensuring community engagement throughout each project.",
+  },
+];
+
+export default function HomePage() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <>
+      {/* Hero */}
+      <Hero
+        title="Building Futures in Rural South Africa"
+        subtitle="The EASA programme designs and builds Early Childhood Development centres with university students — one community at a time."
+        primaryCta={{ label: "Support the 2026 Project", href: "/get-involved" }}
+        secondaryCta={{ label: "Learn More", href: "#story" }}
+      />
+
+      {/* Impact Stats */}
+      <StatCounter stats={stats} />
+
+      {/* The Story */}
+      <section id="story" className="py-20 sm:py-28">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            {/* Text */}
+            <div>
+              <SectionHeading
+                title="The Story"
+                subtitle="How EASA is transforming communities and education"
+                align="left"
+              />
+              <div className="space-y-6 text-warm-grey leading-relaxed">
+                <p>
+                  Rural Limpopo faces a critical shortage of Early Childhood
+                  Development infrastructure. Many communities lack the safe,
+                  stimulating learning environments that young children need
+                  during their most formative years. Existing centres are often
+                  overcrowded, under-resourced, and structurally inadequate.
+                </p>
+                <p>
+                  The Education Africa Social Architecture programme brings
+                  together a unique coalition — Education Africa, the University
+                  of Nottingham, and the Thusanang Trust — to address this
+                  crisis through a design-build model. Each year, architecture
+                  students design and physically construct a new ECD centre,
+                  guided by professional mentors and working alongside local
+                  craftspeople.
+                </p>
+                <p>
+                  The impact is dual: rural communities gain purpose-built
+                  facilities where children can learn and thrive, while
+                  university students gain irreplaceable real-world experience —
+                  bridging the gap between academic theory and professional
+                  practice in the most meaningful way possible.
+                </p>
+              </div>
+            </div>
+
+            {/* Image placeholder */}
+            <div className="rounded-2xl overflow-hidden aspect-[4/3] bg-gradient-to-br from-terracotta/25 via-sand to-forest/15 flex items-center justify-center">
+              <span className="text-warm-grey-light text-sm">
+                Project photograph
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Programme History Timeline */}
+      <section className="py-20 sm:py-28 bg-sand/50">
+        <div className="mx-auto max-w-5xl px-6 lg:px-8">
+          <SectionHeading
+            title="Our Journey"
+            subtitle="16 projects across 15+ years of impact in rural South Africa"
+          />
+          <Timeline />
+        </div>
+      </section>
+
+      {/* Partners */}
+      <section className="py-20 sm:py-28">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <SectionHeading
+            title="Our Partners"
+            subtitle="A coalition of organisations committed to building a better future"
+          />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {partners.map((partner) => (
+              <PartnerCard key={partner.name} {...partner} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Footer Section */}
+      <section className="py-20 sm:py-28 bg-sand/50">
+        <div className="mx-auto max-w-3xl px-6 text-center">
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl text-charcoal mb-6">
+            Join Us in Building Mesela
+          </h2>
+          <p className="text-warm-grey text-lg leading-relaxed mb-10 max-w-xl mx-auto">
+            The 2026 Mesela project needs your support. Whether you&apos;re a
+            donor, a university partner, or a corporate sponsor — there&apos;s a
+            way for you to make a lasting impact.
           </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href="/get-involved"
+            className="inline-flex items-center justify-center rounded-full bg-teal px-10 py-4 text-lg font-semibold text-white hover:bg-teal-dark transition-colors"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+            Get Involved
+          </Link>
         </div>
-      </main>
-    </div>
+      </section>
+    </>
   );
 }
