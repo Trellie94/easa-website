@@ -31,6 +31,108 @@ const projects: TimelineEntry[] = [
   { year: "2009–2010", name: "Jouberton" },
 ];
 
+function CompactTimelineCard({
+  entry,
+  index,
+}: {
+  entry: TimelineEntry;
+  index: number;
+}) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([e]) => {
+        if (e.isIntersecting) setVisible(true);
+      },
+      { threshold: 0.2 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  const cardContent = (
+    <div
+      className={`rounded-xl overflow-hidden ${
+        entry.current
+          ? "bg-teal text-white shadow-lg"
+          : "bg-white shadow-sm border border-sand-dark"
+      } ${entry.slug ? "hover:shadow-md transition-shadow" : ""}`}
+    >
+      {entry.image && (
+        <div className="relative w-full aspect-[16/10]">
+          <Image
+            src={entry.image}
+            alt={`${entry.name} project`}
+            fill
+            className="object-cover"
+            sizes="400px"
+          />
+        </div>
+      )}
+
+      <div className="p-4">
+        <span
+          className={`block text-xs font-semibold uppercase tracking-wider mb-1 ${
+            entry.current ? "text-white/70" : "text-warm-grey-light"
+          }`}
+        >
+          {entry.year}
+        </span>
+        <span
+          className={`block font-heading text-base ${
+            entry.current ? "text-white" : "text-charcoal"
+          }`}
+        >
+          {entry.name}
+        </span>
+        {entry.current && (
+          <span className="inline-block mt-1.5 text-xs bg-white/20 rounded-full px-3 py-0.5">
+            Current Project
+          </span>
+        )}
+        {entry.slug && !entry.current && (
+          <span className="inline-block mt-1.5 text-xs text-teal font-medium">
+            View project →
+          </span>
+        )}
+      </div>
+    </div>
+  );
+
+  return (
+    <div ref={ref} className="relative flex items-start gap-4">
+      {/* Dot */}
+      <div className="flex-shrink-0 mt-4 relative z-10">
+        <div
+          className={`w-3 h-3 rounded-full border-[3px] ${
+            entry.current
+              ? "bg-teal border-teal-light"
+              : "bg-white border-sand-dark"
+          }`}
+        />
+      </div>
+
+      {/* Card */}
+      <div
+        className={`flex-1 transition-all duration-500 ${
+          visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+        }`}
+        style={{ transitionDelay: `${index * 40}ms` }}
+      >
+        {entry.slug ? (
+          <Link href={`/projects/${entry.slug}`}>{cardContent}</Link>
+        ) : (
+          cardContent
+        )}
+      </div>
+    </div>
+  );
+}
+
 function TimelineCard({
   entry,
   index,
@@ -64,7 +166,6 @@ function TimelineCard({
           : "bg-white shadow-sm border border-sand-dark"
       } ${entry.slug ? "hover:shadow-md transition-shadow" : ""}`}
     >
-      {/* Project image */}
       {entry.image && (
         <div className="relative w-full aspect-[16/10]">
           <Image
@@ -144,7 +245,22 @@ function TimelineCard({
   );
 }
 
-export default function Timeline() {
+export default function Timeline({ compact = false }: { compact?: boolean }) {
+  if (compact) {
+    return (
+      <div className="relative pl-1.5">
+        {/* Vertical line on left */}
+        <div className="absolute left-[5px] top-0 bottom-0 w-px bg-sand-dark" />
+
+        <div className="flex flex-col gap-3">
+          {projects.map((entry, i) => (
+            <CompactTimelineCard key={entry.year} entry={entry} index={i} />
+          ))}
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="relative">
       {/* Vertical line - visible only on md+ */}

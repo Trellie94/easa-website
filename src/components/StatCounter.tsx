@@ -7,6 +7,7 @@ interface Stat {
   suffix?: string;
   prefix?: string;
   label: string;
+  noFormat?: boolean;
 }
 
 interface StatCounterProps {
@@ -17,10 +18,12 @@ function AnimatedNumber({
   value,
   suffix = "",
   prefix = "",
+  noFormat = false,
 }: {
   value: number;
   suffix?: string;
   prefix?: string;
+  noFormat?: boolean;
 }) {
   const [count, setCount] = useState(0);
   const ref = useRef<HTMLSpanElement>(null);
@@ -59,7 +62,7 @@ function AnimatedNumber({
   return (
     <span ref={ref}>
       {prefix}
-      {count.toLocaleString()}
+      {noFormat ? count : count.toLocaleString()}
       {suffix}
     </span>
   );
@@ -77,6 +80,7 @@ export default function StatCounter({ stats }: StatCounterProps) {
                   value={stat.value}
                   suffix={stat.suffix}
                   prefix={stat.prefix}
+                  noFormat={stat.noFormat}
                 />
               </p>
               <p className="text-cream/60 text-sm sm:text-base">{stat.label}</p>

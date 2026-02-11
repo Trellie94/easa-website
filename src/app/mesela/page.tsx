@@ -60,6 +60,28 @@ export default function MeselaPage() {
         </div>
       </section>
 
+      {/* Location */}
+      <section className="py-20 sm:py-28 bg-sand/50">
+        <div className="mx-auto max-w-4xl px-6 lg:px-8">
+          <SectionHeading
+            title="Location"
+            subtitle="Malesa Primary School, Limpopo, South Africa"
+          />
+          <div className="rounded-2xl overflow-hidden border border-sand-dark shadow-sm">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3622.8!2d29.7634699!3d-23.9017955!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ec6c9b83b15bfb1%3A0xd6240b8b790b517c!2sMalesa%20Primary%20School!5e0!3m2!1sen!2suk!4v1707700000000"
+              width="100%"
+              height="450"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Malesa Primary School location"
+            />
+          </div>
+        </div>
+      </section>
+
       {/* Project Budget */}
       <section className="py-20 sm:py-28 bg-sand/50">
         <div className="mx-auto max-w-4xl px-6 lg:px-8">

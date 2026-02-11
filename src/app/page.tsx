@@ -3,12 +3,12 @@ import Image from "next/image";
 import Hero from "@/components/Hero";
 import StatCounter from "@/components/StatCounter";
 import SectionHeading from "@/components/SectionHeading";
-import Timeline from "@/components/Timeline";
+import TimelineMapSection from "@/components/TimelineMapSection";
 import PartnerCard from "@/components/PartnerCard";
 
 const stats = [
   { value: 16, suffix: "+", label: "Projects Completed" },
-  { value: 2009, label: "Since" },
+  { value: 2009, label: "Since", noFormat: true },
   { value: 1000, suffix: "+", label: "Children Served" },
   { value: 15, suffix: "+", label: "Years of Impact" },
 ];
@@ -101,14 +101,16 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Programme History Timeline */}
-      <section className="py-20 sm:py-28 bg-sand/50">
-        <div className="mx-auto max-w-5xl px-6 lg:px-8">
+      {/* Programme History Timeline + Map */}
+      <section className="bg-sand/50 h-screen max-h-[900px] min-h-[600px] flex flex-col">
+        <div className="mx-auto max-w-7xl w-full px-6 lg:px-8 pt-16 pb-8 flex flex-col flex-1 min-h-0">
           <SectionHeading
             title="Our Journey"
             subtitle="16 projects across 15+ years of impact in rural South Africa"
           />
-          <Timeline />
+          <div className="flex-1 min-h-0">
+            <TimelineMapSection />
+          </div>
         </div>
       </section>
 
