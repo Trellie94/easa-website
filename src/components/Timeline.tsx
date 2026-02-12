@@ -13,7 +13,7 @@ interface TimelineEntry {
 }
 
 const projects: TimelineEntry[] = [
-  { year: "2026", name: "Mesela", current: true },
+  { year: "2026", name: "Masela", current: true },
   { year: "2025", name: "TBC" },
   { year: "2024", name: "Matshela DayCare" },
   { year: "2023", name: "Monang", image: "/images/project-monang.jpg", slug: "monang" },

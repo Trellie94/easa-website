@@ -133,10 +133,10 @@ export default function HomePage() {
       <section className="py-20 sm:py-28 bg-sand/50">
         <div className="mx-auto max-w-3xl px-6 text-center">
           <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl text-charcoal mb-6">
-            Join Us in Building Mesela
+            Join Us in Building Masela
           </h2>
           <p className="text-warm-grey text-lg leading-relaxed mb-10 max-w-xl mx-auto">
-            The 2026 Mesela project needs your support. Whether you&apos;re a
+            The 2026 Masela project needs your support. Whether you&apos;re a
             donor, a university partner, or a corporate sponsor — there&apos;s a
             way for you to make a lasting impact.
           </p>

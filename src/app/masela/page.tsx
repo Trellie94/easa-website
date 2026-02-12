@@ -7,21 +7,21 @@ import FundraisingChart from "@/components/FundraisingChart";
 import Link from "next/link";
 
 export const metadata = {
-  title: "Mesela 2026 — EASA",
+  title: "Masela 2026 — EASA",
   description:
-    "The 2026 EASA project in Mesela — building a new Early Childhood Development centre for the community.",
+    "The 2026 EASA project in Masela — building a new Early Childhood Development centre for the community.",
 };
 
-const meselaDetails = [
+const maselaDetails = [
   {
     title: "Community Context & Demographics",
     content:
-      "Mesela is a rural community in Limpopo province, South Africa. Like many communities in the region, it faces significant challenges in providing adequate early childhood education infrastructure. Full demographic details and community profile will be updated as the project progresses.",
+      "Masela is a rural community in Limpopo province, South Africa. Like many communities in the region, it faces significant challenges in providing adequate early childhood education infrastructure. Full demographic details and community profile will be updated as the project progresses.",
   },
   {
     title: "Current State of the ECD Centre",
     content:
-      "The existing ECD centre in Mesela requires significant improvement to provide a safe and stimulating environment for young learners. A detailed assessment of the current facility, including structural condition, available resources, and capacity constraints, will be published here ahead of the build phase.",
+      "The existing ECD centre in Masela requires significant improvement to provide a safe and stimulating environment for young learners. A detailed assessment of the current facility, including structural condition, available resources, and capacity constraints, will be published here ahead of the build phase.",
   },
   {
     title: "Needs Assessment",
@@ -31,26 +31,26 @@ const meselaDetails = [
   {
     title: "Number of Children & Beneficiaries",
     content:
-      "The Mesela ECD centre will serve children from the local community and surrounding areas. Final beneficiary numbers will be confirmed following the needs assessment. Previous EASA projects have typically served between 60 and 150 children, with broader community benefits extending to families and local employment.",
+      "The Masela ECD centre will serve children from the local community and surrounding areas. Final beneficiary numbers will be confirmed following the needs assessment. Previous EASA projects have typically served between 60 and 150 children, with broader community benefits extending to families and local employment.",
   },
   {
     title: "Expected Impact",
     content:
-      "The new Mesela centre is expected to provide a safe, purpose-built learning environment for young children, improve educational outcomes in the early years, create local employment during construction and ongoing operation, and serve as a model for community-centred ECD infrastructure in the region.",
+      "The new Masela centre is expected to provide a safe, purpose-built learning environment for young children, improve educational outcomes in the early years, create local employment during construction and ongoing operation, and serve as a model for community-centred ECD infrastructure in the region.",
   },
 ];
 
-export default function MeselaPage() {
+export default function MaselaPage() {
   return (
     <>
       <Hero
-        title="Mesela 2026"
-        subtitle="The current EASA project — designing and building a new Early Childhood Development centre for the Mesela community in Limpopo."
+        title="Masela 2026"
+        subtitle="The current EASA project — designing and building a new Early Childhood Development centre for the Masela community in Limpopo."
         primaryCta={{ label: "Support This Project", href: "/get-involved" }}
         bgImage="/images/IMG_7390.JPG"
       />
 
-      {/* About Mesela */}
+      {/* About Masela */}
       <section className="py-20 sm:py-28 relative overflow-hidden">
         {/* Semi-transparent sketch background */}
         <div className="absolute inset-0 pointer-events-none">
@@ -65,9 +65,9 @@ export default function MeselaPage() {
         <div className="mx-auto max-w-4xl px-6 lg:px-8 relative z-10">
           <SectionHeading
             title="About the Project"
-            subtitle="Key details about the Mesela 2026 build"
+            subtitle="Key details about the Masela 2026 build"
           />
-          <AccordionSection items={meselaDetails} />
+          <AccordionSection items={maselaDetails} />
         </div>
       </section>
 
@@ -119,11 +119,11 @@ export default function MeselaPage() {
       <section className="py-20 sm:py-28 bg-teal text-white">
         <div className="mx-auto max-w-3xl px-6 text-center">
           <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl mb-6">
-            Help Us Build Mesela
+            Help Us Build Masela
           </h2>
           <p className="text-white/80 text-lg leading-relaxed mb-10 max-w-xl mx-auto">
             Every contribution — large or small — brings us closer to completing
-            the Mesela ECD centre and giving children a brighter start.
+            the Masela ECD centre and giving children a brighter start.
           </p>
           <Link
             href="/get-involved"

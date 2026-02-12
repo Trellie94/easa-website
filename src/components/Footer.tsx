@@ -24,7 +24,7 @@ export default function Footer() {
               {[
                 { href: "/", label: "Home" },
                 { href: "/about", label: "About the Programme" },
-                { href: "/mesela", label: "Mesela 2026" },
+                { href: "/masela", label: "Masela 2026" },
                 { href: "/get-involved", label: "Get Involved" },
                 { href: "/projects", label: "Past Projects" },
               ].map((link) => (

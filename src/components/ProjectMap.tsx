@@ -13,7 +13,7 @@ interface ProjectPin {
 }
 
 const projectPins: ProjectPin[] = [
-  { name: "Mesela", year: "2026", lat: -23.9018, lng: 29.7635, current: true },
+  { name: "Masela", year: "2026", lat: -23.9018, lng: 29.7635, current: true },
   { name: "Matshela DayCare", year: "2024", lat: -23.89, lng: 29.75 },
   { name: "Monang", year: "2023", lat: -24.0348, lng: 29.8034 },
   { name: "Malahlela", year: "2022", lat: -23.8842, lng: 29.7194 },
